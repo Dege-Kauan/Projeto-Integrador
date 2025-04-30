@@ -78,9 +78,9 @@ Todos os diagramas foram desenvolvidos com base nas boas práticas da modelagem 
 
 ---
 
-## 📁 Entrega
+## 📁 Entrega Parcial
 
-Este projeto foi entregue em formato `.pdf` com todas as modelagens organizadas em:
+Essa parte do projeto foi entregue em formato `.pdf` com todas as modelagens organizadas em:
 - Parte 1: Modelagem do Banco de Dados
 - Parte 2: Modelagem UML
 - Parte 3: Diagramas de Atividades
