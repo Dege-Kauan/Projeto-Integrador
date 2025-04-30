@@ -72,8 +72,7 @@ Todos os diagramas foram desenvolvidos com base nas boas práticas da modelagem 
 ## 👨‍💻 Autor
 
 **Kauan Degenhart**  
-Projeto acadêmico de Práticas Extensionistas
-Curso de Análise e Desenvolvimento de Sistemas  
+Projeto acadêmico de Práticas Extensionistas no Curso de Análise e Desenvolvimento de Sistemas
 UNOESC
 
 ---
