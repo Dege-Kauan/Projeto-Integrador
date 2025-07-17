@@ -42,7 +42,7 @@ Foi implementado um **teste de integração** utilizando Spring Boot para verifi
 - Verificar se os dados persistem corretamente no banco
 
 O teste é executado com `mvn test` e validado por meio do framework JUnit com suporte ao MockMvc.
-
+- Desenvolvimento/back-end/comprasplus-api/src/test/java/br/com/comprasplus - 
 ---
 
 ## 📁 Conteúdo do PDF
