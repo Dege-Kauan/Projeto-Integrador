@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compras+</title>
-  <link rel="stylesheet" href="style/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compras+ - Painel</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <script src="scripts/app.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Compras+</h1>
-    <nav>
-      <button onclick="abrirTela('lista')">Lista de Compras</button>
-      <button onclick="abrirTela('gastos')">Controle de Gastos</button>
-    </nav>
+    <h1>Bem-vindo ao Compras+</h1>
+    <button onclick="logout()">Sair</button>
   </header>
 
-  <main id="conteudo-principal">
-    <!-- Telas carregadas dinamicamente via JS -->
+  <main>
+    <p>Você está logado com sucesso!</p>
+    <p>Aqui será exibido o conteúdo da aplicação.</p>
   </main>
-
-  <script src="scripts/app.js"></script>
 </body>
 </html>

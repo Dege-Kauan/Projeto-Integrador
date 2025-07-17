@@ -1,94 +1,108 @@
-# 📦 Compras+  Otimizando seus gastos
+# 🛒 Compras+ – Otimizando seus gastos
 
-## 📝 Descrição do Projeto
-
-**Compras+** é um aplicativo web desenvolvido como MVP (Mínimo Produto Viável) com o objetivo de **otimizar a experiência de controle de compras pessoais**. O sistema permite que o usuário crie listas de compras, gerencie produtos, e acompanhe seus gastos de maneira prática e organizada.
-
-A solução visa oferecer ao usuário um ambiente intuitivo onde ele possa:
-- Criar e organizar listas de compras
-- Adicionar e editar produtos com preço e quantidade
-- Visualizar o total de gastos pagos e pendentes
-- Marcar gastos como pagos posteriormente, simulando situações de cartão de crédito ou pagamentos agendados
+Este repositório contém os artefatos de documentação, modelagem e código do sistema **Compras+**, um aplicativo web projetado para auxiliar usuários na **organização de listas de compras** e no **controle de gastos pessoais**, oferecendo uma solução prática, intuitiva e eficiente.
 
 ---
 
-## 🚀 Funcionalidades
+## 📌 Objetivo do Projeto
 
-- [x] Autenticação de usuários (login)
-- [x] Cadastro de novos usuários
-- [x] Criação e gerenciamento de listas de compras
-- [x] Adição, edição e remoção de produtos
-- [x] Visualização de controle de gastos (pagos e pendentes)
-- [x] Registro de pagamentos efetuados
+O objetivo do Compras+ é resolver um problema cotidiano: a **falta de organização nas compras e o descontrole financeiro**. Com ele, o usuário pode planejar suas compras, acompanhar o que foi comprado, o que ainda falta pagar e visualizar o total dos gastos.
 
 ---
 
-## 🧩 Modelagens Utilizadas
+## 👤 Público-alvo
 
-O projeto foi modelado com base nos padrões da **UML** e com foco em uma arquitetura limpa, reutilizável e clara para implementação.
+O sistema é voltado para **usuários finais comuns**, como estudantes, profissionais, famílias e qualquer pessoa que deseje:
+- Planejar suas compras com mais eficiência
+- Acompanhar seus gastos com praticidade
+- Controlar o que já foi pago ou ainda está pendente
 
-### 🔹 Banco de Dados
+---
+
+## 💡 Proposta de Valor
+
+- Cadastro e login de usuários
+- Edição de **perfil pessoal**, incluindo foto de perfil
+- Adição, edição e remoção de itens em uma lista de compras única
+- Inclusão de produtos com **preço, quantidade ou peso**
+- **Controle de gastos**: pagos, fiado e pendentes
+- **Relatórios visuais** com gráficos de pizza e barra
+- Interface **responsiva** e adaptada para uso em dispositivos móveis
+- Transições suaves entre telas
+- Visualização rápida de **resumo financeiro mensal**
+- Menu lateral com acesso rápido às funcionalidades
+
+---
+
+## 🧪 Testes Realizados
+
+Foi implementado um **teste de integração** utilizando Spring Boot para verificar o funcionamento correto da API de usuários. O teste garante que o sistema consegue:
+- Criar um novo usuário
+- Buscar um usuário pelo ID
+- Verificar se os dados persistem corretamente no banco
+
+O teste é executado com `mvn test` e validado por meio do framework JUnit com suporte ao MockMvc.
+
+---
+
+## 📁 Conteúdo do PDF
+
+O arquivo `Compras+.pdf` incluído neste repositório contém:
+
+### 1. 📄 **Modelo de Negócio e de Sistema**
+- Definição do problema
+- Identificação dos usuários/clientes
+- Proposta de valor e funcionalidades
+
+### 2. 📃 **Requisitos do Sistema**
+- Requisitos Funcionais (RF001 a RF015)
+- Requisitos Não Funcionais (RNF001 a RNF010)
+
+### 3. 🧪 **Justificativa das Tecnologias Utilizadas**
+- Frontend: HTML, CSS e JavaScript
+- Backend: Java + Spring Boot
+- Banco de Dados: MySQL
+- Swagger para documentação da API
+
+### 4. 🗂️ **Modelagem de Banco de Dados**
 - Modelo Entidade-Relacionamento Conceitual
-- Modelo Lógico
+- Modelo Entidade-Relacionamento Lógico
 
-### 🔹 Modelagem UML
-- Diagrama de Casos de Uso Geral
+### 5. 📐 **Modelagem UML**
 - Diagrama de Classes
-- Diagramas de Sequência para cada caso de uso
-- Diagramas de Atividades representando os principais fluxos
+- Diagrama de Caso de Uso Geral
+- **Diagramas de Sequência** (um para cada fluxo principal)
+- **Diagramas de Atividades** (mapeando os fluxos do usuário)
 
 ---
 
-## 📷 Diagramas Produzidos
+## 🛠️ Tecnologias Utilizadas
 
-Todos os diagramas foram desenvolvidos com base nas boas práticas da modelagem orientada a objetos, contemplando:
-
-### Banco de Dados:
-- MER Conceitual
-- MER Lógico
-
-### UML Estrutural:
-- Diagrama de Classes
-
-### UML Comportamental:
-- Diagrama de Casos de Uso
-- 6 Diagramas de Atividades:
-  - Login no Sistema
-  - Cadastro de Novo Usuário
-  - Gerenciar Lista de Compras
-  - Gerenciar Produtos na Lista
-  - Visualizar Controle de Gastos
-  - Registrar Pagamento
-- 6 Diagramas de Sequência:
-  - Autenticar-se
-  - Cadastrar-se
-  - Gerenciar Lista de Compras
-  - Gerenciar Produtos
-  - Visualizar Controle de Gastos
-  - Registrar Pagamento
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Java 21 com Spring Boot
+- **Banco de Dados**: MySQL
+- **Documentação da API**: Swagger UI (OpenAPI)
+- **Controle de Versão**: Git e GitHub
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍🎓 Autor
 
-**Kauan Degenhart**  
-- Projeto acadêmico de Práticas Extensionistas
-- Curso de Análise e Desenvolvimento de Sistemas
-- UNOESC
-
----
-
-## 📁 Entrega Parcial
-
-Essa parte do projeto foi entregue em formato `.pdf` com todas as modelagens organizadas em:
-- Parte 1: Modelagem do Banco de Dados
-- Parte 2: Modelagem UML
-- Parte 3: Diagramas de Atividades
-- Parte 4: Diagramas de Sequência
+- **Nome**: Kauan Degenhart
+- **Instituição**: UNOESC
+- **Curso**: Análise e Desenvolvimento de Sistemas
 
 ---
 
-## ✅ Status
+## 📌 Status do Projeto
 
-📌 Documentação Finalizada  
-📄 PDF com diagramas estruturado e pronto para submissão
+✅ Documentação e modelagem concluídas  
+✅ Protótipo funcional implementado  
+✅ Teste automatizado de integração executado com sucesso  
+🚀 Pronto para demonstração e entrega final
+
+---
+
+## 📝 Licença
+
+Este projeto foi desenvolvido para fins acadêmicos e pode ser utilizado como base para estudos e projetos semelhantes.

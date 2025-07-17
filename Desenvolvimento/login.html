@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Compras+</title>
+  <link rel="stylesheet" href="style/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="topo">
+    <img src="assets/logo.png" alt="Logo Compras+">
+    <span class="titulo">COMPRAS+</span>
+  </div>
+
+  <div class="card">
+    <h2>Login</h2>
+    <form onsubmit="loginUsuario(event)">
+      <input type="email" id="loginEmail" placeholder="E-mail" required>
+
+      <div class="campo-senha">
+        <input type="password" id="loginSenha" placeholder="Senha" required>
+        <span class="olho" onclick="toggleSenha('loginSenha', this)">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+      </div>
+
+      <!-- Correção: manter alinhado em linha única -->
+      <div class="manter-conectado">
+        <label>
+          <input type="checkbox" id="manterConectado">
+          <span>Manter-me conectado</span>
+        </label>
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="link">Não tem conta? <a href="#" onclick="irParaCadastro(event)">Criar conta</a></p>
+  </div>
+
+  <script src="scripts/login.js"></script>
+  <script>
+    function irParaCadastro(event) {
+      event.preventDefault();
+      document.body.classList.remove("loaded");
+      document.body.classList.add("slide-out-right");
+      setTimeout(() => {
+        window.location.href = "cadastro.html";
+      }, 400);
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>

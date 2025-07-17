@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap');
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('../assets/fundo.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Topo com logo e botão */
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.logo-superior {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-superior img {
+  width: 50px;
+}
+
+.titulo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000000, #555555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botão do menu */
+.botao-menu {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem; /* você pode ajustar esse valor */
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+/* Menu lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background: #2b2d42;
+  width: 220px;
+  height: 100%;
+  color: white;
+  padding: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+
+.logo-lateral {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-lateral img {
+  width: 32px;
+  height: auto;
+}
+
+.logo-lateral span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Foto de usuário no menu lateral */
+.foto-usuario {
+  width: 80px;
+  height: 80px;
+  background-color: #444;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-usuario svg {
+  width: 42px;
+  height: 42px;
+  stroke: #ccc;
+}
+
+.nome-usuario {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+/* Links do menu */
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.menu-lateral li {
+  margin-bottom: 1rem;
+}
+
+.menu-lateral a {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.menu-lateral a svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.menu-lateral a:hover {
+  color: #fff;
+}
+
+/* Cards de resumo */
+.resumo {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.resumo-card {
+  background: #ffffff00;
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(1,1,1,1.1);
+  min-width: 150px;
+  flex: 1;
+  max-width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent; 
+}
+
+.resumo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.resumo-card span {
+  display: block;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.resumo-card strong {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.resumo-card.selecionado {
+  border: 2px solid #000000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* sombra mais visível */
+  transform: scale(1.05);
+  font-weight: bold;
+  background-color: #00000000;
+  color: #000000;
+}
+
+
+/* Atalhos visuais */
+.atalhos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.atalhos button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  width: 100%;
+  max-width: 150px;
+}
+
+.atalhos button span {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Pop-up de boas-vindas */
+.popup-boas-vindas {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ffffffdd;
+  color: #000;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-weight: bold;
+  z-index: 100;
+  opacity: 0;
+  animation: aparecerDesaparecer 4s ease forwards;
+}
+
+@keyframes aparecerDesaparecer {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .card strong {
+    font-size: 1.2rem;
+  }
+
+  .menu-lateral {
+    width: 200px;
+  }
+
+  .menu-lateral a {
+    font-size: 1rem;
+  }
+
+  .menu-lateral a svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .foto-usuario {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+}
+
+.foto-usuario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+}
+/* Transição suave ao trocar de página */
+body {
+  opacity: 0;
+  animation: aparecerTela 0.4s ease forwards;
+}
+
+@keyframes aparecerTela {
+  to {
+    opacity: 1;
+  }
+}
+
+.cartoes-resumo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.cartao {
+  flex: 1 1 120px;
+  max-width: 150px;
+  background: #f1f1f1;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+.cartao span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.cartao.credito { background-color: #e3f2fd; color: #0d47a1; }
+.cartao.debito  { background-color: #e8f5e9; color: #1b5e20; }
+.cartao.fiado   { background-color: #fff3e0; color: #e65100; }

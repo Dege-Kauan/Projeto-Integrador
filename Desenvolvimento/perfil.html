@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil - Compras+</title>
+  <link rel="stylesheet" href="style/perfil.css" />
+</head>
+<body>
+  
+ <!-- Menu lateral -->
+  <nav class="menu-lateral" id="menuLateral">
+    <div class="logo-lateral">
+      <img src="assets/logo-branca.png" alt="Logo Compras+" />
+      <span>Compras+</span>
+    </div>
+
+    <!-- Foto do usuário -->
+    <div class="foto-usuario">
+      <img id="fotoUsuarioMenu" src="assets/default-user.png" alt="Foto do usuário">
+    </div>
+
+    <div class="nome-usuario" id="nomeUsuarioMenu">Usuário</div>
+
+    <ul>
+      <li><a href="inicio.html"><svg><use href="#icon-home" /></svg> Início</a></li>
+      <li><a href="perfil.html"><svg><use href="#icon-perfil" /></svg> Perfil</a></li>
+      <li><a href="lista.html"><svg><use href="#icon-lista" /></svg> Lista de Compras</a></li>
+      <li><a href="gastos.html"><svg><use href="#icon-gastos" /></svg> Controle de Gastos</a></li>
+      <li><a href="relatorios.html"><svg><use href="#icon-relatorios" /></svg> Relatórios</a></li>
+      <li><a href="#" onclick="logout()"><svg><use href="#icon-sair" /></svg> Sair</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Definições de ícones SVG -->
+  <svg style="display: none;">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="icon-lista" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="icon-gastos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></symbol>
+    <symbol id="icon-relatorios" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h4"/></symbol>
+    <symbol id="icon-perfil" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="icon-sair" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+  </svg>
+
+  <!-- Cabeçalho -->
+  <header class="topo">
+    <div id="botaoLottieMenu" class="botao-menu"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <div class="logo-superior">
+      <img src="assets/logo.png" alt="Logo Compras+">
+      <span class="titulo">COMPRAS+</span>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <main class="container">
+    <h1>Meu Perfil</h1>
+
+   <div class="foto-container" onclick="document.getElementById('fotoUpload').click()">
+  <div class="foto-wrapper">
+    <img id="fotoPreview" src="assets/default-user.png" alt="">
+    <div id="iconeAvatar" class="icone-avatar">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="#888">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="botoes-foto">
+    <button id="removerFoto" class="remover-foto" type="button" onclick="removerFoto()" style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M10.8 2c-.5 0-1 .2-1.4.6L9 3H4a1 1 0 100 2h16a1 1 0 100-2h-5l-.4-.4c-.4-.4-.9-.6-1.4-.6h-2.4zM4.4 7l1.5 13.3c.1 1 .9 1.7 1.9 1.7h8.2c1 0 1.9-.7 2-1.7L19.6 7H4.4z"/>
+      </svg>
+      <span>Remover imagem</span>
+    </button>
+  </div>
+
+  <input type="file" id="fotoUpload" accept="image/*" style="display: none;" />
+</div>
+
+    <form id="formPerfil">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" required />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required disabled />
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" required />
+
+      <label for="endereco">Endereço</label>
+      <input type="text" id="endereco" required />
+
+      <label for="dataNascimento">Data de nascimento</label>
+      <input type="text" id="dataNascimento" required />
+
+      <button type="submit" class="botao-verde">Salvar</button>
+    </form>
+  </main>
+
+  <script src="scripts/perfil.js"></script>
+</body>
+</html>

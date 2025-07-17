@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compras+ - Lista de Compras</title>
+  <link rel="stylesheet" href="style/lista.css" />
+</head>
+<body>
+  <!-- Menu lateral -->
+  <nav class="menu-lateral" id="menuLateral">
+    <div class="logo-lateral">
+      <img src="assets/logo-branca.png" alt="Logo Compras+" />
+      <span>Compras+</span>
+    </div>
+
+    <!-- Foto do usuário -->
+    <div class="foto-usuario">
+      <img id="fotoUsuarioMenu" src="assets/default-user.png" alt="Foto do usuário">
+    </div>
+
+    <div class="nome-usuario" id="nomeUsuarioMenu">Usuário</div>
+
+    <ul>
+      <li><a href="inicio.html"><svg><use href="#icon-home" /></svg> Início</a></li>
+      <li><a href="perfil.html"><svg><use href="#icon-perfil" /></svg> Perfil</a></li>
+      <li><a href="lista.html"><svg><use href="#icon-lista" /></svg> Lista de Compras</a></li>
+      <li><a href="gastos.html"><svg><use href="#icon-gastos" /></svg> Controle de Gastos</a></li>
+      <li><a href="relatorios.html"><svg><use href="#icon-relatorios" /></svg> Relatórios</a></li>
+      <li><a href="#" onclick="logout()"><svg><use href="#icon-sair" /></svg> Sair</a></li>
+    </ul>
+  </nav>
+
+  <!-- Definições de ícones SVG -->
+  <svg style="display: none;">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="icon-lista" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="icon-gastos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></symbol>
+    <symbol id="icon-relatorios" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h4"/></symbol>
+    <symbol id="icon-perfil" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="icon-sair" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+  </svg>
+
+  <!-- Cabeçalho com botão e logo -->
+  <header class="topo">
+    <div id="botaoLottieMenu" class="botao-menu"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <div class="logo-superior">
+      <img src="assets/logo.png" alt="Logo Compras+">
+      <span class="titulo">COMPRAS+</span>
+    </div>
+  </header>
+  <!-- Conteúdo principal -->
+  <main class="container">
+  <h1>Lista de Compras</h1>
+
+  <ul class="lista-itens" id="listaItens">
+    <!-- Itens inseridos via JavaScript -->
+  </ul>
+
+  <div class="botoes-acoes">
+    <button class="botao-verde" onclick="abrirPopupAdicionar()">Adicionar Item</button>
+    <button class="botao-pagamento" onclick="abrirPopupPagamento()">Pagamento</button>
+  </div>
+
+  <!-- Pop-up para adicionar item -->
+  <div class="popup-overlay" id="popupAdicionar">
+    <div class="popup">
+      <h2>Adicionar Item</h2>
+      <form onsubmit="adicionarItem(event)">
+        <label>Nome do item*</label>
+        <input type="text" id="nomeItem" required />
+        
+        <div class="toggle-unidades">
+          <button type="button" onclick="mostrarCampoQtd()">Qtd</button>
+          <button type="button" onclick="mostrarCampoKg()">Kg</button>
+        </div>
+
+        <div id="campoQtd" class="campo-opcional" style="display: none;">
+          <label>Quantidade</label>
+          <input type="number" id="qtdItem" min="1" />
+        </div>
+
+        <div id="campoKg" class="campo-opcional" style="display: none;">
+          <label>Quilogramas</label>
+          <input type="number" id="kgItem" min="0.1" step="0.1" />
+        </div>
+
+        <div class="botoes-popup">
+          <button type="submit" class="botao-verde">Adicionar</button>
+          <button type="button" onclick="fecharPopup('popupAdicionar')">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!-- Pop-up para pagamento -->
+<div class="popup-overlay" id="popupPagamento">
+  <div class="popup">
+    <h2>Pagamento</h2>
+    <form onsubmit="confirmarPagamento(event)">
+  <div class="linha-form">
+    <label for="valorGasto">Valor gasto:</label>
+    <input type="text" id="valorGasto" inputmode="decimal" placeholder="Ex: 10,00" />
+  </div>
+
+  <div class="linha-form metodo-linha">
+    <label for="metodoPagamento">Método de pagamento:</label>
+    <div class="select-wrapper">
+      <select id="metodoPagamento">
+        <option value="">Selecione...</option>
+        <option value="debito">Débito</option>
+        <option value="credito">Crédito</option>
+        <option value="fiado">Fiado</option>
+      </select>
+      <span class="info-icon" onclick="mostrarExplicacao()" title="Explicação">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 2-3 4"/>
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="17" x2="12" y2="17"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+   <!-- Box da explicação -->
+  <div id="explicacaoPagamento" style="display: none; margin-top: 10px; font-size: 0.9rem; color: #444;">
+    <p><strong>Débito:</strong> Pagamento à vista, incluindo dinheiro e Pix.<br>
+      <strong>Crédito:</strong> Valor será dividido conforme o número de parcelas.<br>
+      <strong>Fiado:</strong> Valor será marcado como pendente para pagamento futuro.</p>
+  </div>
+  <div class="linha-form" id="campoParcelas" style="display: none;">
+    <label for="parcelas">Número de parcelas:</label>
+    <input type="number" id="parcelas" min="1" max="24" inputmode="numeric" />
+  </div>
+  <div class="linha-form" id="campoMesParcela" style="display: none;">
+    <label for="mesParcelaInicial">Mês da primeira parcela:</label>
+    <input type="month" id="mesParcelaInicial" />
+  </div>
+
+  <div class="botoes-popup">
+    <button type="submit" class="botao-verde">Confirmar</button>
+    <button type="button" onclick="fecharPopup('popupPagamento')">Cancelar</button>
+  </div>
+</form>
+  </div>
+</div>
+
+</main>
+
+
+  <!-- Pop-up de adicionar item -->
+  <div id="popupAdicionar" class="popup-adicionar" style="display: none;">
+    <div class="popup-conteudo">
+      <h2>Adicionar Item</h2>
+      <form id="formAdicionarItem">
+        <label>Nome do Item *</label>
+        <input type="text" id="itemNome" required />
+
+        <label>Quantidade (opcional)</label>
+        <input type="number" id="itemQuantidade" min="0" />
+
+        <label>Quilos (opcional)</label>
+        <input type="number" id="itemQuilos" min="0" step="0.01" />
+
+        <div class="popup-botoes">
+          <button type="submit">Adicionar</button>
+          <button type="button" onclick="fecharPopup()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/lista.js"></script>
+
+  <div id="popupNotificacao" class="popup-notificacao" style="display: none;">
+  <span id="popupIcone">✔️</span>
+  <span id="popupTexto">Mensagem</span>
+</div>
+
+</body>
+</html>

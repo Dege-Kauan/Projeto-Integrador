@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compras+ - Controle de Gastos</title>
+  <link rel="stylesheet" href="style/gastos.css" />
+</head>
+<body>
+
+<!-- Menu lateral -->
+<nav class="menu-lateral" id="menuLateral">
+  <div class="logo-lateral">
+    <img src="assets/logo-branca.png" alt="Logo Compras+" />
+    <span>Compras+</span>
+  </div>
+
+  <div class="foto-usuario">
+    <img id="fotoUsuarioMenu" src="assets/default-user.png" alt="Foto do usuário">
+  </div>
+  <div class="nome-usuario" id="nomeUsuarioMenu">Usuário</div>
+
+  <ul>
+    <li><a href="inicio.html"><svg><use href="#icon-home" /></svg> Início</a></li>
+    <li><a href="perfil.html"><svg><use href="#icon-perfil" /></svg> Perfil</a></li>
+    <li><a href="lista.html"><svg><use href="#icon-lista" /></svg> Lista de Compras</a></li>
+    <li><a href="gastos.html"><svg><use href="#icon-gastos" /></svg> Controle de Gastos</a></li>
+    <li><a href="relatorios.html"><svg><use href="#icon-relatorios" /></svg> Relatórios</a></li>
+    <li><a href="#" onclick="logout()"><svg><use href="#icon-sair" /></svg> Sair</a></li>
+  </ul>
+</nav>
+
+<!-- Ícones SVG ocultos -->
+<svg style="display: none;">
+  <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="icon-perfil" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="icon-lista" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="icon-gastos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></symbol>
+  <symbol id="icon-relatorios" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h4"/></symbol>
+  <symbol id="icon-sair" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+</svg>
+
+<!-- Cabeçalho -->
+<header class="topo">
+  <div id="botaoLottieMenu" class="botao-menu"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+  <div class="logo-superior">
+    <img src="assets/logo.png" alt="Logo Compras+">
+    <span class="titulo">COMPRAS+</span>
+  </div>
+</header>
+
+<!-- Conteúdo -->
+<main class="container">
+  <h1>Controle de Gastos</h1>
+
+  <section class="filtros">
+  <div class="linha-filtro">
+    <label for="filtroTipo">Método Pagamento:</label>
+    <select id="filtroTipo">
+      <option value="">Todos</option>
+      <option value="debito">Débito</option>
+      <option value="credito">Crédito</option>
+      <option value="fiado">Fiado</option>
+    </select>
+  </div>
+
+  <div class="linha-filtro datas">
+    <div class="grupo-data">
+      <label for="filtroDia">Dia:</label>
+      <input type="number" id="filtroDia" placeholder="Dia" min="1" max="31" />
+    </div>
+
+    <div class="grupo-data">
+      <label for="filtroMes">Mês:</label>
+      <input type="number" id="filtroMes" placeholder="Mês" min="1" max="12" />
+    </div>
+
+    <div class="grupo-data">
+      <label for="filtroAno">Ano:</label>
+      <input type="number" id="filtroAno" placeholder="Ano" min="2000" max="2100" />
+    </div>
+  </div>
+</section>
+
+
+  <ul class="lista-gastos" id="listaGastos">
+    <!-- Itens renderizados via JS -->
+  </ul>
+</main>
+
+<!-- Pop-up de ação (não está mais sendo usado, pode remover se desejar) -->
+<div id="popupAcoes" class="popup-acoes" style="display: none;">
+  <div class="popup-conteudo">
+    <p id="descricaoItem"></p>
+    <div class="botoes-popup">
+      <button onclick="marcarComoPago()">Marcar como Pago</button>
+      <button onclick="excluirItem()">Excluir</button>
+      <button onclick="fecharPopup()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Define mês e ano automaticamente ao carregar a página
+  document.addEventListener("DOMContentLoaded", () => {
+    const hoje = new Date();
+    document.getElementById("filtroMes").value = hoje.getMonth() + 1;
+    document.getElementById("filtroAno").value = hoje.getFullYear();
+  });
+</script>
+
+<script src="scripts/gastos.js"></script>
+</body>
+</html>

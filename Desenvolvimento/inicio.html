@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compras+ - Início</title>
+  <link rel="stylesheet" href="style/inicio.css" />
+</head>
+<body>
+  <!-- Menu lateral -->
+  <nav class="menu-lateral" id="menuLateral">
+    <div class="logo-lateral">
+      <img src="assets/logo-branca.png" alt="Logo Compras+" />
+      <span>Compras+</span>
+    </div>
+
+    <div class="foto-usuario">
+      <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+      </svg>
+    </div>
+    <div class="nome-usuario" id="nomeUsuarioMenu">Usuário</div>
+    
+    <ul>
+      <li><a href="inicio.html"><svg><use href="#icon-home" /></svg> Início</a></li>
+      <li><a href="perfil.html"><svg><use href="#icon-perfil" /></svg> Perfil</a></li>
+      <li><a href="lista.html"><svg><use href="#icon-lista" /></svg> Lista de Compras</a></li>
+      <li><a href="gastos.html"><svg><use href="#icon-gastos" /></svg> Controle de Gastos</a></li>
+      <li><a href="relatorios.html"><svg><use href="#icon-relatorios" /></svg> Relatórios</a></li>
+      <li><a href="#" onclick="logout()"><svg><use href="#icon-sair" /></svg> Sair</a></li>
+    </ul>
+  </nav>
+
+  <!-- Definições de ícones SVG -->
+  <svg style="display: none;">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="icon-lista" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="icon-gastos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></symbol>
+    <symbol id="icon-relatorios" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h4"/></symbol>
+    <symbol id="icon-perfil" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="icon-sair" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+  </svg>
+
+  <!-- Cabeçalho com botão e logo -->
+  <header class="topo">
+    <div id="botaoLottieMenu" class="botao-menu"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <div class="logo-superior">
+      <img src="assets/logo.png" alt="Logo Compras+">
+      <span class="titulo">COMPRAS+</span>
+    </div>
+  </header>
+
+  <!-- Pop-up de boas-vindas -->
+  <div id="popupBoasVindas" class="popup-boas-vindas">Olá, <span id="nomeUsuarioPopup">Usuário</span> 👋</div>
+
+  <main>
+    
+    <!-- Resumo com valores -->
+    <section class="resumo">
+  <div class="resumo-card" id="filtroMesAtual">
+    <span>Gastos no mês</span>
+    <strong id="valorGasto">R$ 0,00</strong>
+  </div>
+  <div class="resumo-card" id="filtroFuturo">
+    <span>Gastos futuros</span>
+    <strong id="valorFuturo">R$ 0,00</strong>
+  </div>
+</section>
+
+    <!-- Cartões de resumo -->
+    <section class="cartoes-resumo">
+  <div class="cartao credito">
+    💳 Crédito:<br> <span id="resumoCredito">R$ 0</span>
+  </div>
+  <div class="cartao debito">
+    💵 Débito:<br> <span id="resumoDebito">R$ 0</span>
+  </div>
+  <div class="cartao fiado">
+    📝 Fiado:<br> <span id="resumoFiado">R$ 0</span>
+  </div>
+</section>
+
+  <script src="scripts/inicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background: url('../assets/fundo.png') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-height: 100vh;
+  position: relative;
+  opacity: 0;
+  animation: aparecerTela 0.4s ease forwards;
+}
+
+@keyframes aparecerTela {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Cabeçalho com logo e botão */
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.logo-superior {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-superior img {
+  width: 50px;
+}
+
+.titulo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000000, #555555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botão do menu */
+.botao-menu {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+/* Menu lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background: #2b2d42;
+  width: 220px;
+  height: 100%;
+  color: white;
+  padding: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+
+.logo-lateral {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-lateral img {
+  width: 32px;
+  height: auto;
+}
+
+.logo-lateral span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Foto de usuário no menu lateral */
+.foto-usuario {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+}
+
+.foto-usuario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.foto-usuario svg {
+  width: 42px;
+  height: 42px;
+  stroke: #ccc;
+}
+
+.nome-usuario {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+/* Links do menu */
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.menu-lateral li {
+  margin-bottom: 1rem;
+}
+
+.menu-lateral a {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.menu-lateral a svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.menu-lateral a:hover {
+  color: #fff;
+}
+
+/* Container principal */
+.container {
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 6rem auto 3rem;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.container h1 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+#btnAbrirPopup {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+#btnAbrirPopup:hover {
+  background-color: #45a049;
+}
+
+/* Lista */
+ul#listaCompras {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+ul#listaCompras li {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+ul#listaCompras .botoes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+ul#listaCompras .botoes button {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+ul#listaCompras .botoes button.pagar {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+ul#listaCompras .botoes button.remover {
+  background-color: #e53935;
+  color: #fff;
+}
+
+/* Pop-up adicionar item */
+.popup-adicionar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup-conteudo {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-conteudo h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.popup-conteudo label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.popup-conteudo input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.popup-botoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-botoes button {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-botoes button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.popup-botoes button[type="button"] {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Pop-up de notificação */
+.popup-notificacao {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideUpFade 0.5s ease forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lista-itens {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.lista-itens li {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lista-itens input[type="checkbox"] {
+  margin-right: 0.8rem;
+}
+
+.botoes-acoes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.botao-verde, .botao-pagamento {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.botoes-popup {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.toggle-unidades {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.toggle-unidades button {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.info-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.explicacao {
+  background: #f0f0f0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+
+/* POPUP DE PAGAMENTO */
+.popup-pagamento {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 3000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.popup-pagamento h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.popup-pagamento .campo-valor,
+.popup-pagamento .campo-metodo {
+  margin-bottom: 1.8rem;
+}
+
+.popup-pagamento .metodo-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.popup-pagamento .metodo-label label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  flex: 1;
+}
+
+.popup-pagamento input[type="text"],
+.popup-pagamento select {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Select + botão ajuda */
+.popup-pagamento .select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.popup-pagamento .select-wrapper select {
+  flex: 1;
+  min-width: 0;
+}
+
+.popup-pagamento .metodo-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.popup-pagamento .metodo-label label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  flex: 1;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  height: 24px;
+  width: 24px;
+  vertical-align: middle;
+}
+
+.info-icon svg {
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Explicação */
+.popup-pagamento .explicacao {
+  display: none;
+  font-size: 0.9rem;
+  background-color: #f0f0f0;
+  padding: 0.8rem;
+  border-radius: 6px;
+  color: #333;
+}
+
+/* Botões */
+.popup-pagamento .botoes-popup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.popup-pagamento .botoes-popup button {
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-pagamento .botoes-popup .confirmar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.popup-pagamento .botoes-popup .cancelar {
+  background-color: #eee;
+  color: #333;
+}
+
+/* Campo de parcelas (visível somente para crédito) */
+#campoParcelas {
+  margin-top: 1.2rem;
+  display: none;
+}
+
+#campoParcelas label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+#campoParcelas input {
+  width: 120px;
+  padding: 0.10rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+/* Evita zoom */
+input[type="text"],
+input[type="number"],
+select {
+  font-size: 16px;
+}

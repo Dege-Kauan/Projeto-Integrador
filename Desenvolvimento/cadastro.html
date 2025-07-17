@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Compras+</title>
+  <link rel="stylesheet" href="style/cadastro.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="topo">
+    <img src="assets/logo.png" alt="Logo Compras+">
+    <span class="titulo">COMPRAS+</span>
+  </div>
+
+  <div class="card">
+    <h2>Cadastro</h2>
+    <form onsubmit="cadastrarUsuario(event)">
+      <input type="text" id="nomeCompleto" placeholder="Nome completo" required />
+      <input type="email" id="cadastroEmail" placeholder="E-mail" required />
+
+      <div class="campo-senha">
+        <input type="password" id="cadastroSenha" placeholder="Senha (mínimo 6 caracteres)" minlength="6" required />
+        <span class="olho" onclick="toggleSenha('cadastroSenha', this)">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </span>
+      </div>
+
+      <div class="campo-senha">
+        <input type="password" id="confirmarSenha" placeholder="Confirmar senha" minlength="6" required />
+        <span class="olho" onclick="toggleSenha('confirmarSenha', this)">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </span>
+      </div>
+
+      <p class="erro" id="erroSenha"></p>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p class="link">Já tem conta? <a href="#" onclick="irParaLogin(event)">Entrar</a></p>
+  </div>
+
+  <script src="scripts/cadastro.js"></script>
+  <script>
+    function irParaLogin(event) {
+      event.preventDefault();
+      document.body.classList.remove("loaded");
+      document.body.classList.add("slide-out-left");
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 400);
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>

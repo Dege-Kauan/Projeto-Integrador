@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background: url('../assets/fundo.png') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-height: 100vh;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: aparecerTela 0.4s ease forwards;
+}
+
+
+@keyframes aparecerTela {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Cabeçalho com logo e botão */
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.logo-superior {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-superior img {
+  width: 50px;
+}
+
+.titulo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000000, #555555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botão do menu */
+.botao-menu {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+/* Menu lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background: #2b2d42;
+  width: 220px;
+  height: 100%;
+  color: white;
+  padding: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+
+.logo-lateral {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-lateral img {
+  width: 32px;
+  height: auto;
+}
+
+.logo-lateral span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Foto de usuário no menu lateral */
+.foto-usuario {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+}
+
+.foto-usuario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.foto-usuario svg {
+  width: 42px;
+  height: 42px;
+  stroke: #ccc;
+}
+
+.nome-usuario {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+/* Links do menu */
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.menu-lateral li {
+  margin-bottom: 1rem;
+}
+
+.menu-lateral a {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.menu-lateral a svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.menu-lateral a:hover {
+  color: #fff;
+}
+
+/* Container principal */
+.container {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 6rem auto 3rem;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Foto de perfil */
+.foto-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.foto-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #000; /* Borda preta ao redor */
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+
+.foto-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.foto-wrapper img:hover {
+  filter: brightness(0.85);
+}
+
+.icone-avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.foto-wrapper img:not([src*="default-user.png"]) + .icone-avatar {
+  display: none;
+}
+
+/* Esconde input de arquivo no iOS */
+input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Botões de foto */
+.botoes-foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.remover-foto {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  color: #d00;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: -0.2rem;
+}
+
+.remover-foto svg {
+  fill: #d00;
+  width: 18px;
+  height: 18px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form label {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: -0.4rem;
+  margin-top: 0.5rem;
+  color: #444;
+  display: block;
+}
+
+input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #3ea344;
+}
+
+.popup-notificacao {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ffffffee;
+  color: #000;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 9999;
+}
+
+.popup-notificacao.mostrar {
+  display: flex;
+  animation: aparecerDesaparecer 3s ease forwards;
+}
+
+@keyframes aparecerDesaparecer {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+#app {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
