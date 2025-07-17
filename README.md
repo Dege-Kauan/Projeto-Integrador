@@ -43,7 +43,7 @@ Foi implementado um **teste de integração** utilizando Spring Boot para verifi
 
 O teste é executado com `mvn test` e validado por meio do framework JUnit com suporte ao MockMvc.
 
-Disponivel em: Desenvolvimento/back-end/comprasplus-api/src/test/java/br/com/comprasplus
+Teste disponivel em: Desenvolvimento/back-end/comprasplus-api/src/test/java/br/com/comprasplus
 ---
 
 ## 📁 Conteúdo do PDF
