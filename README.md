@@ -1,6 +1,6 @@
 # 🛒 Compras+ – Otimizando seus gastos
 
-Este repositório contém os artefatos de documentação e modelagem do sistema **Compras+**, um aplicativo web projetado para auxiliar usuários na **organização de listas de compras** e no **controle de gastos pessoais**, oferecendo uma solução prática, intuitiva e eficiente.
+Este repositório contém os artefatos de documentação, modelagem e código do sistema **Compras+**, um aplicativo web projetado para auxiliar usuários na **organização de listas de compras** e no **controle de gastos pessoais**, oferecendo uma solução prática, intuitiva e eficiente.
 
 ---
 
@@ -21,11 +21,27 @@ O sistema é voltado para **usuários finais comuns**, como estudantes, profissi
 
 ## 💡 Proposta de Valor
 
-- Criação e edição de **listas de compras**
-- Adição de produtos com **preço e quantidade**
-- **Controle de gastos**: pagos vs. pendentes
-- Interface simples, responsiva e acessível
-- Visão clara dos **valores totais** das listas
+- Cadastro e login de usuários
+- Edição de **perfil pessoal**, incluindo foto de perfil
+- Adição, edição e remoção de itens em uma lista de compras única
+- Inclusão de produtos com **preço, quantidade ou peso**
+- **Controle de gastos**: pagos, fiado e pendentes
+- **Relatórios visuais** com gráficos de pizza e barra
+- Interface **responsiva** e adaptada para uso em dispositivos móveis
+- Transições suaves entre telas
+- Visualização rápida de **resumo financeiro mensal**
+- Menu lateral com acesso rápido às funcionalidades
+
+---
+
+## 🧪 Testes Realizados
+
+Foi implementado um **teste de integração** utilizando Spring Boot para verificar o funcionamento correto da API de usuários. O teste garante que o sistema consegue:
+- Criar um novo usuário
+- Buscar um usuário pelo ID
+- Verificar se os dados persistem corretamente no banco
+
+O teste é executado com `mvn test` e validado por meio do framework JUnit com suporte ao MockMvc.
 
 ---
 
@@ -43,10 +59,10 @@ O arquivo `Compras+.pdf` incluído neste repositório contém:
 - Requisitos Não Funcionais (RNF001 a RNF010)
 
 ### 3. 🧪 **Justificativa das Tecnologias Utilizadas**
-- Frontend: React.js
-- Backend: Node.js + Express
-- Banco de Dados: PostgreSQL
-- Segurança e Hospedagem
+- Frontend: HTML, CSS e JavaScript
+- Backend: Java + Spring Boot
+- Banco de Dados: MySQL
+- Swagger para documentação da API
 
 ### 4. 🗂️ **Modelagem de Banco de Dados**
 - Modelo Entidade-Relacionamento Conceitual
@@ -55,18 +71,18 @@ O arquivo `Compras+.pdf` incluído neste repositório contém:
 ### 5. 📐 **Modelagem UML**
 - Diagrama de Classes
 - Diagrama de Caso de Uso Geral
-- **6 Diagramas de Sequência** (um para cada fluxo do sistema)
-- **6 Diagramas de Atividades** (mapeando o comportamento do usuário)
+- **Diagramas de Sequência** (um para cada fluxo principal)
+- **Diagramas de Atividades** (mapeando os fluxos do usuário)
 
 ---
 
-## 🛠️ Tecnologias Recomendadas
+## 🛠️ Tecnologias Utilizadas
 
-- **Frontend**: React.js
-- **Backend**: Node.js + Express
-- **Banco de Dados**: PostgreSQL
-- **Hospedagem**: Vercel, Render ou Railway
-- **Segurança**: Autenticação, criptografia de senha (bcrypt), HTTPS
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Java 21 com Spring Boot
+- **Banco de Dados**: MySQL
+- **Documentação da API**: Swagger UI (OpenAPI)
+- **Controle de Versão**: Git e GitHub
 
 ---
 
@@ -78,20 +94,15 @@ O arquivo `Compras+.pdf` incluído neste repositório contém:
 
 ---
 
-## 📦 Arquivo Principal
-
-- `Compras+.pdf`: Documento completo com todos os requisitos, diagramas e justificativas de projeto.
-
----
-
 ## 📌 Status do Projeto
 
-✅ **Documentação e modelagem finalizadas**  
-🚧 Fase de implementação pode ser iniciada a partir da arquitetura proposta
+✅ Documentação e modelagem concluídas  
+✅ Protótipo funcional implementado  
+✅ Teste automatizado de integração executado com sucesso  
+🚀 Pronto para demonstração e entrega final
 
 ---
 
 ## 📝 Licença
 
 Este projeto foi desenvolvido para fins acadêmicos e pode ser utilizado como base para estudos e projetos semelhantes.
-
