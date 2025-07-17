@@ -1,6 +1,6 @@
 # 🛒 Compras+ – Otimizando seus gastos
 
-Este repositório contém os artefatos de documentação, modelagem e código do sistema **Compras+**, um aplicativo web projetado para auxiliar usuários na **organização de listas de compras** e no **controle de gastos pessoais**, oferecendo uma solução prática, intuitiva e eficiente.
+Este repositório contém os artefatos de documentação, modelagem e código do sistema **Compras+**, um aplicativo web projetado para auxiliar usuários na **organização de itens para compra** e no **controle de gastos pessoais**, oferecendo uma solução prática, intuitiva e eficiente.
 
 ---
 
@@ -100,9 +100,3 @@ O arquivo `Compras+.pdf` incluído neste repositório contém:
 ✅ Protótipo funcional implementado  
 ✅ Teste automatizado de integração executado com sucesso  
 🚀 Pronto para demonstração e entrega final
-
----
-
-## 📝 Licença
-
-Este projeto foi desenvolvido para fins acadêmicos e pode ser utilizado como base para estudos e projetos semelhantes.
